@@ -1,6 +1,4 @@
 <?php
-// header.php — ΜΟΝΟ HTML + navbar
-// session_start() ΠΡΕΠΕΙ να γίνει στο main αρχείο πριν το include
 ?>
 <!DOCTYPE html>
 <html lang="el">
@@ -13,7 +11,6 @@
 </head>
 <body>
 
-<!-- Navbar -->
 <div class="navbar">
     <div class="nav-left"></div>
 

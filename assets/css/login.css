@@ -1,21 +1,18 @@
-/* Global styling */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
 }
 
-/* Κεντρικό container φόρμας */
 form {
     max-width: 400px;
-    margin: 80px auto; /* κεντράρισμα */
+    margin: 80px auto;
     background-color: #fff;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Τίτλος & μηνύματα */
 form h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -29,7 +26,6 @@ p.message {
     margin-bottom: 15px;
 }
 
-/* Labels */
 form label {
     display: block;
     margin-bottom: 6px;
@@ -37,7 +33,6 @@ form label {
     color: #555;
 }
 
-/* Inputs */
 form input[type="text"],
 form input[type="password"] {
     width: 100%;
@@ -56,7 +51,6 @@ form input[type="password"]:focus {
     outline: none;
 }
 
-/* Submit button */
 form button {
     width: 100%;
     padding: 12px;
@@ -73,7 +67,6 @@ form button:hover {
     background-color: #555;
 }
 
-/* Link για register */
 form p a {
     color: #333;
     text-decoration: none;
@@ -83,7 +76,7 @@ form p a:hover {
     text-decoration: underline;
 }
 
-/* βασικό styling για όλα τα μηνύματα */
+
 .message {
     text-align: center;
     font-weight: bold;
@@ -91,12 +84,10 @@ form p a:hover {
     font-size: 16px;
 }
 
-/* λάθος */
 .message.error {
     color: red;
 }
 
-/* επιτυχία */
 .message.success {
     color: green;
 }

@@ -1,7 +1,6 @@
 <?php
  session_start();
 include "../config/database.php";
-//include "../includes/auth.php";
 include "../includes/header.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -13,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($title) || empty($description)) {
         $message = "Παρακαλώ συμπλήρωσε όλα τα πεδία.";
     } else {
-        // SQL insert
         $sql = "INSERT INTO tasks (title, description, status, user_id) 
                 VALUES ('$title', '$description', '$status', '$user_id')";
 

@@ -2,22 +2,19 @@
 session_start();
 include "config/database.php";
 
-// Redirect αν δεν είναι logged in
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
 
-// Παίρνουμε tasks
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT * FROM tasks WHERE user_id = $user_id ORDER BY created_at DESC";
 $result = mysqli_query($conn, $sql);
 
-// Include header (navbar + CSS)
 include "includes/header.php";
 ?>
 
-<!-- Main Content -->
 <div class="container">
     <h2>Dashboard</h2>
     <p>Welcome, <?php echo $_SESSION['username']; ?></p>
@@ -54,6 +51,5 @@ include "includes/header.php";
 </div>
 
 <?php
-// Include footer (κλείσιμο body + html)
 include "includes/footer.php";
 ?>

@@ -1,5 +1,5 @@
 <?php
-// 1. Συνδέσου με τη βάση
+
 include 'config/database.php'; 
 
 if (!$conn) {

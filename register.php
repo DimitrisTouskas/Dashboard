@@ -15,8 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "Παρακαλώ συμπλήρωσε όλα τα πεδία.";
     } else {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        // SQL insert
         $sql = "INSERT INTO users (username, email, password, created_at) 
                 VALUES ('$username', '$email', '$hashedPassword', NOW())";
 
