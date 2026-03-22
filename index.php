@@ -39,7 +39,10 @@ include "includes/header.php";
                     <td>
                         <a href="tasks/edit.php?id=<?php echo $row['id']; ?>">Edit</a>
                         <a href="tasks/view.php?id=<?php echo $row['id']; ?>">View</a>
-                        <a href="tasks/delete.php?id=<?php echo $row['id']; ?>">Delete</a>
+                        <a href="tasks/delete.php?id=<?php echo $row['id']; ?>" 
+                        onclick="return confirm('Are you sure you want to delete this task?');">
+                        Delete
+                        </a>
                     </td>
                 </tr>
             <?php endwhile; ?>

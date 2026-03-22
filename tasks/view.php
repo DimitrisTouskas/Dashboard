@@ -1,36 +1,50 @@
 <?php
-include "../includes/header.php";
-include "../config/database.php";
 session_start();
+
+include "../config/database.php";
+//include "../includes/auth.php";
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../login.php");
     exit;
 }
-$id = $_GET['id'];
+
+if (!isset($_GET['id'])) {
+    header("Location: /dashboard/index.php");
+    exit;
+}
+
 $user_id = $_SESSION['user_id'];
+$id = (int) $_GET['id'];
 
-$sql = "SELECT * FROM tasks WHERE id = $id AND user_id = $user_id";
-$result = mysqli_query($conn, $sql);
+$message = "";
 
-$task = mysqli_fetch_assoc($result);
+$stmt = $conn->prepare("SELECT * FROM tasks WHERE id = ? AND user_id = ?");
+$stmt->bind_param("ii", $id, $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$task = $result->fetch_assoc();
+$stmt->close();
 
 if (!$task) {
     echo "Task not found";
     exit;
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     $status = $_POST['status'];
 
-    $sql = "UPDATE tasks SET status = $status WHERE id = $id AND user_id = $user_id";
+    $stmt = $conn->prepare("UPDATE tasks SET status = ? WHERE id = ? AND user_id = ?");
+    $stmt->bind_param("iii", $status, $id, $user_id);
 
-    mysqli_query($conn, $sql);
+    if ($stmt->execute()) {
+        header("Location: /dashboard/tasks/view.php?id=$id&updated=1");
+        exit;
+    } else {
+        $message = "Error updating task";
+    }
 
-    header("Location: /dashboard/index.php?id=$id");
-    exit;
+    $stmt->close();
 }
 ?>
 <!DOCTYPE html>
@@ -38,23 +52,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>View Task</title>
+
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/create.css">
 </head>
 <body>
-    
-</body>
-</html>
 
 <div class="container">
 
-    <h2><?php echo $task['title']; ?></h2>
+    <h2><?php echo htmlspecialchars($task['title']); ?></h2>
 
-    <p><?php echo $task['description']; ?></p>
+    <p><?php echo htmlspecialchars($task['description']); ?></p>
 
     <p>
         Status: 
         <?php echo $task['status'] ? 'Completed' : 'Pending'; ?>
     </p>
+
+    <?php if (isset($_GET['updated'])): ?>
+        <p class="message success">Task updated successfully!</p>
+    <?php endif; ?>
+
+    <?php if (!empty($message)): ?>
+        <p class="message error"><?php echo $message; ?></p>
+    <?php endif; ?>
 
     <form method="POST">
         <label>Change Status:</label>
@@ -67,3 +89,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 
 </div>
+
+</body>
+</html>
