@@ -6,7 +6,7 @@ include "../includes/header.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
-    $status = isset($_POST['status']) ? 1 : 0;
+    $status = (int) $_POST['status'];
     $user_id = $_SESSION['user_id'];
 
     if (empty($title) || empty($description)) {
