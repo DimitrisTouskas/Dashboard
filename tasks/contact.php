@@ -2,7 +2,7 @@
 session_start();
 include "../includes/header.php";
 
-// Έλεγχος login
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../login.php");
     exit;

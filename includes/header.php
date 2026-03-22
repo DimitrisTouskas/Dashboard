@@ -33,14 +33,3 @@
     </div>
 
 </div>
-
-    <!-- <div class="nav-right">
-        <?php if (isset($_SESSION['username'])): ?>
-            <span>Welcome, <?php echo $_SESSION['username']; ?></span>
-            <a href="/dashboard/logout.php">Logout</a>
-        <?php else: ?>
-            <a href="/dashboard/login.php">Login</a>
-        <?php endif; ?>
-    </div>
-</div>
-        -->

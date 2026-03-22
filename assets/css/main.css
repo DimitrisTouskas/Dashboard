@@ -1,11 +1,9 @@
-/* ===== RESET ===== */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f6f9;
 }
 
-/* ===== MODERN NAVBAR ===== */
 .navbar {
     background: #1f1f2e;
     padding: 15px 30px;
@@ -43,7 +41,6 @@ body {
     color: #aaa;
 }
 
-/* ===== CONTAINER ===== */
 .container {
     max-width: 900px;
     margin: 40px auto;
@@ -53,13 +50,11 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-/* ===== HEADINGS ===== */
 h2 {
     margin-bottom: 20px;
     color: #1f1f2e;
 }
 
-/* ===== FORMS ===== */
 form label {
     display: block;
     margin-bottom: 5px;
@@ -75,7 +70,6 @@ form select {
     border: 1px solid #ccc;
 }
 
-/* ===== BUTTONS ===== */
 button,
 .btn {
     padding: 10px 15px;
@@ -93,13 +87,13 @@ button:hover,
 }
 
 table {
-    width: 100%;           /* απλώνει σε όλο το container */
+    width: 100%;
     border-collapse: collapse;
 }
 
 table th, table td {
     padding: 12px 15px;
-    text-align: center;    /* κέντρο περιεχομένου */
+    text-align: center;
 }
 
 table th {
@@ -115,7 +109,6 @@ table tr:hover {
     background-color: #ececec;
 }
 
-/* ===== ACTION BUTTONS ===== */
 .actions a {
     margin-right: 10px;
     font-size: 16px;
@@ -124,7 +117,6 @@ table tr:hover {
     transition: 0.2s;
 }
 
-/* Colors */
 .actions .edit {
     color: #007bff;
 }
@@ -137,12 +129,10 @@ table tr:hover {
     color: #dc3545;
 }
 
-/* Hover */
 .actions a:hover {
     background: #f1f1f1;
 }
 
-/* ===== STATUS ===== */
 .status {
     padding: 5px 10px;
     border-radius: 5px;
@@ -158,7 +148,7 @@ table tr:hover {
     background: green;
 }
 
-/* ===== MESSAGES ===== */
+
 .message {
     padding: 10px;
     border-radius: 5px;
@@ -176,23 +166,23 @@ table tr:hover {
     color: #721c24;
 }
 
-/* Button style για Add Task */
+
 .btn-add {
-    display: inline-block;          /* σαν κουμπί */
-    padding: 10px 20px;             /* μέγεθος κουμπιού */
-    background-color: #1f1f2e;      /* ίδιο χρώμα με navbar */
-    color: white;                   /* κείμενο λευκό */
+    display: inline-block;
+    padding: 10px 20px;             
+    background-color: #1f1f2e;
+    color: white;
     font-weight: bold;
-    text-decoration: none;          /* αφαιρεί underline */
-    border-radius: 8px;             /* στρογγυλεμένες γωνίες */
-    transition: 0.3s;               /* smooth hover effect */
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
-/* Hover effect */
+
 .btn-add:hover {
-    background-color: #1f1f2e;         /* λίγο πιο σκούρο */
+    background-color: #1f1f2e;
     color: #fff;
     cursor: pointer;
-    transform: translateY(-2px);    /* μικρή ανύψωση για animation */
+    transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
