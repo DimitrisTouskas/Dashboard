@@ -16,9 +16,6 @@ include "includes/header.php";
 ?>
 
 <div class="container">
-    <h2>Dashboard</h2>
-    <p>Welcome, <?php echo $_SESSION['username']; ?></p>
-
     <a href="tasks/create.php" class="btn-add">+ Add New Task</a>
     <br><br>
 
@@ -36,14 +33,20 @@ include "includes/header.php";
                     <td><?php echo htmlspecialchars($row['title']); ?></td>
                     <td><?php echo htmlspecialchars($row['description']); ?></td>
                     <td><?php echo $row['status'] ? 'Completed' : 'Pending'; ?></td>
-                    <td>
-                        <a href="tasks/edit.php?id=<?php echo $row['id']; ?>">Edit</a>
-                        <a href="tasks/view.php?id=<?php echo $row['id']; ?>">View</a>
-                        <a href="tasks/delete.php?id=<?php echo $row['id']; ?>" 
-                        onclick="return confirm('Are you sure you want to delete this task?');">
-                        Delete
-                        </a>
-                    </td>
+                    <td class="actions">
+                    <a class="edit" href="tasks/edit.php?id=<?php echo $row['id']; ?>" title="Edit">
+                    <i class="fa-solid fa-pen"></i>
+                    </a>
+
+    <a class="view" href="tasks/view.php?id=<?php echo $row['id']; ?>" title="View">
+        <i class="fa-solid fa-eye"></i>
+    </a>
+
+    <a class="delete" href="tasks/delete.php?id=<?php echo $row['id']; ?>"
+       onclick="return confirm('Delete this task?');" title="Delete">
+        <i class="fa-solid fa-trash"></i>
+    </a>
+</td>
                 </tr>
             <?php endwhile; ?>
 

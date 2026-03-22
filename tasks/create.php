@@ -30,9 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a New Task</title>
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="stylesheet" href="../assets/css/create.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="/dashboard/assets/css/main.css">
+    <link rel="stylesheet" href="/dashboard/assets/css/forms.css">
 </head>
 <body>
 
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="title" id="title" placeholder="Enter task title">
 
         <label for="description">Description</label>
-        <input type="text" name="description" id="description" placeholder="Enter task description">
+<textarea name="description" id="description" placeholder="Enter task description" rows="5"></textarea>
 
         <label for="status">Status</label>
         <select name="status" id="status">

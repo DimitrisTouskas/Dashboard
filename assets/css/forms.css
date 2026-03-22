@@ -1,0 +1,78 @@
+/* Container φόρμας */
+.container form {
+    max-width: 500px;       /* όριο πλάτους */
+    margin: 20px auto;      /* κέντρο οθόνης */
+    background-color: #f4f4f4;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Labels */
+.container form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Inputs και textarea */
+.container form input,
+.container form textarea,
+.container form select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.container form input:focus,
+.container form textarea:focus,
+.container form select:focus {
+    border-color: #1f1f2e;   /* ίδιο χρώμα με navbar */
+    box-shadow: 0 0 5px rgba(31,31,46,0.3);
+}
+
+/* Κουμπί submit */
+.container form button,
+.container form .btn-add {
+    background-color: #1f1f2e; /* ίδιο με navbar */
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.container form button:hover,
+.container form .btn-add:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Success / error messages */
+.message {
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.message.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.message.error {
+    background-color: #f44336;
+    color: white;
+}

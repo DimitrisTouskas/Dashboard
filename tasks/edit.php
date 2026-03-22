@@ -67,8 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Edit Task</title>
 
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="stylesheet" href="../assets/css/create.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
 

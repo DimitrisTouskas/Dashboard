@@ -1,0 +1,198 @@
+/* ===== RESET ===== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+}
+
+/* ===== MODERN NAVBAR ===== */
+.navbar {
+    background: #1f1f2e;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #fff;
+}
+
+.nav-logo {
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+}
+
+.nav-right span {
+    color: #aaa;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ===== HEADINGS ===== */
+h2 {
+    margin-bottom: 20px;
+    color: #1f1f2e;
+}
+
+/* ===== FORMS ===== */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* ===== BUTTONS ===== */
+button,
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background: #1f1f2e;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button:hover,
+.btn:hover {
+    background: #555;
+}
+
+table {
+    width: 100%;           /* απλώνει σε όλο το container */
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: center;    /* κέντρο περιεχομένου */
+}
+
+table th {
+    background-color: #1f1f2e;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #ececec;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.actions a {
+    margin-right: 10px;
+    font-size: 16px;
+    padding: 6px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+/* Colors */
+.actions .edit {
+    color: #007bff;
+}
+
+.actions .view {
+    color: #17a2b8;
+}
+
+.actions .delete {
+    color: #dc3545;
+}
+
+/* Hover */
+.actions a:hover {
+    background: #f1f1f1;
+}
+
+/* ===== STATUS ===== */
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+}
+
+.status.pending {
+    background: orange;
+}
+
+.status.completed {
+    background: green;
+}
+
+/* ===== MESSAGES ===== */
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.message.success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.message.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Button style για Add Task */
+.btn-add {
+    display: inline-block;          /* σαν κουμπί */
+    padding: 10px 20px;             /* μέγεθος κουμπιού */
+    background-color: #1f1f2e;      /* ίδιο χρώμα με navbar */
+    color: white;                   /* κείμενο λευκό */
+    font-weight: bold;
+    text-decoration: none;          /* αφαιρεί underline */
+    border-radius: 8px;             /* στρογγυλεμένες γωνίες */
+    transition: 0.3s;               /* smooth hover effect */
+}
+
+/* Hover effect */
+.btn-add:hover {
+    background-color: #1f1f2e;         /* λίγο πιο σκούρο */
+    color: #fff;
+    cursor: pointer;
+    transform: translateY(-2px);    /* μικρή ανύψωση για animation */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}

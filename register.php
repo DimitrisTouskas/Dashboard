@@ -1,56 +1,76 @@
 <?php
-
 session_start();
 include 'config/database.php';
-include './includes/auth.php';
 
-$message = ""; 
+$message = "";
+$message_type = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
-    $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-    if (empty($username) || empty($email) || empty($password)) {
-        $message = "Παρακαλώ συμπλήρωσε όλα τα πεδία.";
+    if (empty($username) || empty($password)) {
+        $message = "Συμπλήρωσε όλα τα πεδία.";
+        $message_type = "error";
     } else {
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO users (username, email, password, created_at) 
-                VALUES ('$username', '$email', '$hashedPassword', NOW())";
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        if (mysqli_query($conn, $sql)) {
-            $message = "Επιτυχής εγγραφή! Τώρα μπορείς να κάνεις login.";
+        $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+        $stmt->bind_param("ss", $username, $hashed_password);
+
+        if ($stmt->execute()) {
+            $message = "Επιτυχής εγγραφή! Μπορείς να κάνεις login.";
+            $message_type = "success";
         } else {
-            $message = "Σφάλμα: " . mysqli_error($conn);
+            $message = "Σφάλμα: Username μπορεί να υπάρχει ήδη.";
+            $message_type = "error";
         }
+
+        $stmt->close();
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+
+    <link rel="stylesheet" href="/dashboard/assets/css/main.css">
 </head>
 <body>
-<h2>Register</h2>
 
-<?php if (!empty($message)) { echo "<p>$message</p>"; } ?>
+<div class="container">
 
-<form action="register.php" method="POST">
-    <label>Username:</label><br>
-    <input type="text" name="username" required><br><br>
+    <h2>Register</h2>
 
-    <label>Email:</label><br>
-    <input type="email" name="email" required><br><br>
+    <?php if (!empty($message)): ?>
+        <p class="message <?php echo $message_type; ?>">
+            <?php echo $message; ?>
+        </p>
+    <?php endif; ?>
 
-    <label>Password:</label><br>
-    <input type="password" name="password" required><br><br>
+    <form method="POST">
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Choose username" required>
 
-    <button type="submit">Register</button>
-</form>
+        <label>Email:</label>
+        <input type="email" name="email" placeholder="Insert email" required>
 
-<p>Έχεις ήδη λογαριασμό; <a href="login.php">Κάνε login εδώ</a></p>
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Choose password" required>
+
+        <button class="btn" type="submit">Register</button>
+    </form>
+
+    <p style="margin-top:15px;">
+        Έχεις ήδη λογαριασμό? 
+        <a href="login.php">Login εδώ</a>
+    </p>
+
+</div>
+
 </body>
 </html>
